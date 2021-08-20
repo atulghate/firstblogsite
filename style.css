@@ -9,9 +9,9 @@
   font-family: 'Ubuntu', sans-serif;
 }
 .navigation {
-  /* display: none; */
+   /* display: none;  */
   
-  display: flex;
+  display: flex; 
  justify-content: space-between;
   height: 375px;
   background-image: url('img.jpg');
@@ -292,19 +292,18 @@ cursor: pointer;
       overflow-x: hidden;
   
     }
-    .right li a{
+   
+     .right li a{ 
       
       padding-right: 22px;
     }
-    .navigation{
-      /* width: 971px; */
-    
+    /* .left li a{
+      display: block; 
+    } */
+    .navigation{ 
+      /* width: 971px;  */
       width: 713px;
-    }
-    .navigation ul li{
-      
-
-    }
+    } 
     .footer{
       width: 713px;
     }

@@ -1,0 +1,248 @@
+ body{
+     margin: 0;
+     padding: 0;
+     background-size: cover ;
+     background-position: center;
+     font-family: sans-serif;
+ }
+ .logbox{
+    width: 360px;
+    height: 385px; 
+     background:#fff;
+     color: black;
+     top:50%;
+     left:50%;
+     position:absolute;
+     transform: translate(-50%,-50%);
+     box-sizing: border-box;
+     padding: 70px 30px;
+     border-radius: 20px;
+     border: 1px solid black;
+     margin-top: 348px;
+ }
+ .regbox h1{
+     margin: 0;
+     padding: 0 0 15px;
+     text-align: center;
+     font-size: 24px;
+ } 
+ .logbox h1{
+    margin: 0;
+    padding: 0 0 15px;
+    text-align: left;
+    font-size: 24px;
+ }
+ .logbox p{
+     margin: 0;
+     padding: 0;
+     font-weight: bold; 
+     margin-right: 219px;
+ }
+ .logbox input{
+     width: 100%;
+     margin-bottom: 30px;
+
+ }
+ .logbox input[type="text"],input[type="password"]{
+     border: none;
+     border-bottom: 1 px solid #fff;
+     background: transparent;
+     outline: none;
+     height: 40px;
+     font-size: 16px;
+
+ }
+ .logbox input[type="submit"]{
+     border:none;
+     outline: none;
+     height: 40px;
+     background :#402c25;
+     font-size: 18px;
+     border-radius: 20px;
+     color: #ffff;
+ }
+ .regbox{
+    width: 400px; 
+    height: 430px; 
+    background:#fff;
+    color:black; 
+    top:50%;
+     left:50%;
+     position:absolute;
+     transform: translate(-50%,-50%);
+     box-sizing: border-box;
+     padding: 50px 30px;
+     border-radius: 20px;
+     border: 1px solid black;
+     margin-top: 83px;
+    
+ }
+ .regbox input[type="submit"]{
+    width: 43%;
+    border:none;
+    outline: none;
+    height: 33px;
+    background-color: #402c25;
+    font-size: 18px;
+    border-radius: 20px;
+    color: white;
+    
+ }
+ .regbox  table{
+     padding-top: 10px;
+ }
+ .regbox th{
+     padding: 5px;
+ }
+ .sub{
+     padding-top: 20px;
+    cursor: pointer;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+    
+ }
+ /* .navigation{
+     width: 100%;
+     display: flex;
+ justify-content: space-between;
+  height: 100px;
+background:#00293f;
+/* text-align: center; */
+
+ .navigation{
+    display: flex;
+    justify-content: space-between;
+     height: 200px;
+     background-image: url('img.jpg');
+     background-position: cover;
+   /* background:#00293f; */
+   text-align: center;
+   position:sticky;
+   margin-bottom: 44px;
+ }
+  
+ .left {
+    display: inline;
+    padding-top: 30px;
+    margin-left: 30px;
+    /* margin-right: 20px; */
+    display: flex; 
+  }  
+ 
+  .left a{  
+    display: inline;
+    text-decoration: none;
+    list-style-type: none;
+    display: inline-block;
+    font-size: 30px;
+    color:white;
+    justify-content: right;
+    cursor: pointer;
+    padding-right: 20px;
+    
+  }
+  .regbox table{
+    padding-bottom: 30px;
+}
+  
+  .regbox input[type="text"],input[type="password"]{
+    /* border: 2px solid whitesmoke; */
+    border: 1px whitesmoke; 
+    background: transparent;
+    outline: none;
+    height: 35px;
+    font-size: 13px;
+    color:black;
+}
+.regbox th{
+   padding-right: 15px;
+}
+.regbox td{
+    padding-left: 15px;
+ }
+  /* box rgb(86, 54, 171);
+   btn rgb(45 209 156);
+   h1 text-align: left;
+  */
+  ul{
+      text-decoration: none;
+      list-style: none;
+  }
+   li a {
+    font-size: 25px;
+    text-decoration: none;
+    list-style-type: none;
+    display: block;
+    padding-top: 20px;
+    padding-right: 20px;
+    color:white;
+    cursor: pointer;
+  }
+  .left a :hover{
+      color: rgb(45, 24, 168);
+  }
+  .right ul li a :hover{
+      color: rgb(33, 19, 165);
+  }
+ .right1 a{
+    display: inline;
+    text-decoration: none;
+    list-style-type: none;
+    display: inline-block;
+    font-size: 30px;
+    color:white;
+    justify-content:left;
+    cursor: pointer;
+    padding-right: 20px;
+    padding-top: 25px;
+ }
+ 
+.btnlist{
+    width: 100%;
+    justify-content: center;
+    color: black;
+    /* display: inline; */
+    padding-left: 400px;
+    padding-top: 20px;
+    margin-bottom: 60px; 
+    
+    /* background: #000; */
+}
+
+.btnlist a {
+    list-style: none;
+    color: rgb(247, 250, 252);
+    background:#00293f; 
+    padding: 20px;
+    width: 100%;
+    list-style: none;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin: 10px;
+    border-radius: 10px;
+    /* margin-bottom: 40px;    */
+}
+
+ @media screen and (max-width:320px) {
+    .navigation{
+      width: 713px;
+    }
+    .footer{
+      width: 713px;
+    }
+    .content{
+      width: 600px;
+       padding: 13%;
+    }
+    .regbox{
+        margin-left: 184px;
+        margin-top: 159px;
+    }
+    body{
+        height: 300px;
+    }
+  } 

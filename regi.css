@@ -1,0 +1,105 @@
+.box table{
+    margin: 5%;
+    padding: 60px;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+}               
+ body{
+    
+    
+    background-size: cover; 
+    background-position: center;
+    background: whitesmoke;
+    /* background-image: url(dev.JPG.jpg); */
+    
+ }
+ 
+ 
+table{
+    justify-content: center;
+    /* text-align:left; */
+    margin: 10px;
+    color: rgb(6, 6, 22);
+    /* background-color: rgba(238, 225, 225, 0.897); */
+    /* background: rgb(248, 245, 248); */
+    width: 20px;
+    /* border-radius: 10px; */
+    /* padding-left: 1px;
+    padding-bottom: 3%;
+    padding-top: 1%; */
+    border-radius: 20px;
+    
+}
+td{
+    /* padding: 5px; */
+} 
+table input[type="text"],input[type="number"],input[type="email"]{
+  
+    border: none;
+    border-bottom:1px solid black;
+    outline:none;
+    height: 10px;
+    background:transparent ;
+}
+input[type="submit"]{
+ background-color: rgb(10, 7, 207);
+ color: aliceblue;   
+ padding: 6px;
+ justify-content: center;
+ border-radius: 20px;
+ font-weight: bold;
+ margin-left: 200px;
+ margin-top: 20px;
+}
+.head{
+    margin-top: 50px;
+}
+h3{
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    padding-left: 50px;
+    padding: 20px;
+    margin-right: 40px;
+
+}
+.nav {
+    background: #000;
+    justify-content: right ;
+}
+.box{
+    width: 400px;
+    margin-top: 10%;
+    background: rgb(206, 12, 231);
+  }
+  .logbox{
+      width: 400px;
+    margin-top: 10%;
+    border-radius: 20px;
+    background: rgb(214, 76, 226);
+  }
+a{   top: 20%;
+     margin-left: 80%;
+    text-decoration: none;
+    justify-content: right;
+    font-size: bold;
+    background:rgb(6, 44, 212);
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid;
+    border-color:black ;
+    color: rgb(248, 245, 248);
+}
+.button{
+    margin-top: 30px;
+}
+
+.sbtn{
+    margin:top 20px;
+    background: rgb(111, 0, 255);
+  }   
+ 
+

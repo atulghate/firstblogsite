@@ -11,19 +11,22 @@ $typee= $_SESSION['typee'];
     <title>Document</title>
     <link rel="stylesheet" href="log.css">
     <link rel="stylesheet" href="style.css">
-    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<div class="navigation">
-  <div  class="left">
-     <a href="#">iBlog</a>
-     <a href="index.php">Home</a>
- </div>
-  <div class="right1">
-      <a href="author_list.php">Authors List</a>
-      <a href="logout.php">Logout</a>  
-  </div>
-  
+  <nav>
+<input type="checkbox"  id="check">
+  <label for="check" class="checkbtn">
+  <i class="fas fa-bars"></i> 
+  </label>
+  <label class="logo">iBLOG</label> 
+     <ul>
+    <li>  <a href="index.php">Home</a></li>
+     <li> <a href="author_list.php">Authors List</a></li>
+     <li> <a href="logout.php">Logout</a>  </li>
+  </ul>
+  </nav>
    </div>
    <div class="btnlist">
        <a href="create_admin.php">Add Post</a>

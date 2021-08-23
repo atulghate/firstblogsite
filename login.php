@@ -9,31 +9,51 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
    <link rel="stylesheet" href="log.css"> 
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+   <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
-<div class="navigation">
-
     
-    <div class="left">
-    <a href="#">iBlog</a>
-   <a href="index.php">Home</a>
-    </div>
-    <div class="right">
-      <ul>
-      <li> <a href="registretion.php">Register</a></li>
-       </ul>
-    </div>
+<nav>
+  <input type="checkbox"  id="check">
+  <label for="check" class="checkbtn">
+  <i class="fas fa-bars"></i> 
+  </label>
+  <label class="logo">iBLOG</label>
+    <ul>
+    
+    <li> <a class="active" href="index.php">Home</a></li>
+    <li><a href="registretion.php">Register</a></li>
+  <!-- <li><a href="logout.php">Logout</a></li> -->
+  <?php
+ if(isset($_SESSION['typee'])){
+ ?> 
+  <li><a href="admin_dash.php">Admin</a></li>
+  <li><a href="logout.php">Logout</a></li>
+  </ul>
+  </nav>
+  <?php
+ }
+?> 
+  
+ 
+
    <div class="logbox">
      <h1>Login Here</h1>
      <form action="#" method="post">
        <p>Username</p>
-       <input type="text" name="email" placeholder="Enter Your Email" required>
+       <input type="text" name="email" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie'];}?>" placeholder="Enter Your Email" required>
        <p>Password</p>
-       <input type="text" name="password" placeholder="Enter Your Email" required>
+       <input type="text" name="password"  value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];}?>" placeholder="Enter Your Email" required> 
+        <div class="rm">
+       <input type="checkbox" name="rememberme" id="remember">  
+       <label for="remember me">  Remember Me   </label>    
+
+       </div>
        <input type="submit" value="submit" name="login">
       </form>
    </div>
-
 </body>
 </html>
 <?php
@@ -55,14 +75,33 @@ session_start();
     
       $data = mysqli_fetch_assoc($run);
       if($data['type']=='admin'){
-      $_SESSION['typee']= $data['type'];
+         $_SESSION['typee']= $data['type'];
       $_SESSION['aid']= $data['author_id'];
+
+        if(isset($_POST['rememberme'])){
+
+      setcookie('emailcookie',$email,time()+86400);
+      setcookie('passwordcookie',$pass,time()+86400);
+     
+    
       header("location:admin_dash.php");
+      } else{
+        header("location:admin_dash.php");
+      }
      } 
      elseif($data['type']=='author'){
       $_SESSION['pass']= $data['fname'];
       $_SESSION['aid']=$data['author_id'];
+      if(isset($_POST['rememberme'])){ 
+
+      setcookie('emailcookie',$email,time()+86400);
+      setcookie('passwordcookie',$pass,time()+86400);
+     
       header("location:index.php");
+    }
+      else{
+        header("location:index.php");
+        }
       
   }
 }

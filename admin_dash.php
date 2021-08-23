@@ -1,6 +1,11 @@
 <?php
 session_start();
 $typee= $_SESSION['typee'];
+if(isset($_SESSION['typee'])){
+  $typee= $_SESSION['typee'];
+}else{
+    header('location:index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,10 +34,12 @@ $typee= $_SESSION['typee'];
   </nav>
    </div>
    <div class="btnlist">
-       <a href="create_admin.php">Add Post</a>
-       <a href="registretion.php">Add Auther</a>
-       <a href="author_list.php">Auther List</a>
-       <a href="">My Details</a>
+     <ul>
+     <li><a href="create_admin.php">Add Post</a></li>
+     <li>  <a href="registretion.php">Add Auther</a></li>
+     <li>  <a href="author_list.php">Auther List</a></li>
+      <li> <a href="">My Details</a></li>
+      </ul>
    </div>
   <?php 
    include("dbcon.php");

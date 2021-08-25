@@ -45,7 +45,7 @@ session_start();
        <p>Username</p>
        <input type="text" name="email" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie'];}?>" placeholder="Enter Your Email" required>
        <p>Password</p>
-       <input type="text" name="password"  value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];}?>" placeholder="Enter Your Email" required> 
+       <input type="password" name="password"  value="<?php if(isset($_COOKIE['passwordcookie'])){ echo base64_decode ($_COOKIE['passwordcookie']);}?>" placeholder="Enter Your Email" required> 
         <div class="rm">
        <input type="checkbox" name="rememberme" id="remember">  
        <label for="remember me">  Remember Me   </label>    
@@ -80,8 +80,8 @@ session_start();
 
         if(isset($_POST['rememberme'])){
 
-      setcookie('emailcookie',$email,time()+86400);
-      setcookie('passwordcookie',$pass,time()+86400);
+          setcookie('emailcookie',$email,time()+86400);
+          setcookie('passwordcookie',base64_encode($pass),time()+86400);
      
     
       header("location:admin_dash.php");
@@ -94,8 +94,8 @@ session_start();
       $_SESSION['aid']=$data['author_id'];
       if(isset($_POST['rememberme'])){ 
 
-      setcookie('emailcookie',$email,time()+86400);
-      setcookie('passwordcookie',$pass,time()+86400);
+        setcookie('emailcookie',$email,time()+86400);
+        setcookie('passwordcookie',base64_encode($pass),time()+86400);
      
       header("location:index.php");
     }

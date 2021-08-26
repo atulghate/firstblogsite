@@ -1,6 +1,6 @@
 <?php
 session_start();
-error_reporting(0);
+ error_reporting(0);
   ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,19 +13,21 @@ error_reporting(0);
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans:ital@1&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
-   </head>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
 <body>
-   <div class="navigation">
-    
-    <div class="left">
-    <h2>iBlog</h2>
-   <a href="index.php">Home</a>
-   <a href="contact.php">Contact Us</a>
-
-    </div>
- <div class="right">
- <ul>
   
+   <nav>
+     
+  <input type="checkbox"  id="check">
+  <label for="check" class="checkbtn">
+  <i class="fas fa-bars"></i> 
+  </label>
+  <label class="logo">iBLOG</label>
+    <ul>
+    
+    <li> <a class="active" href="index.php">Home</a></li>
+    <li><a href="contact.php">Contact Us</a></li>
   <!-- <li><a href="logout.php">Logout</a></li> -->
   <?php
  if(isset($_SESSION['typee'])){
@@ -56,8 +58,7 @@ error_reporting(0);
 
 </ul>
 
- </div>
- 
+</nav>
  <?php
  include("dbcon.php");
   $qry="SELECT * FROM `post` INNER JOIN author_info ON post.author_id = author_info.author_id ORDER BY cid DESC ";
@@ -65,16 +66,22 @@ error_reporting(0);
   $count=0;
   while($data = mysqli_fetch_assoc($run)){
     $count++;
- ?>
+ ?> <div class="mcontent">
+   <div class="lcontent">
+   <div class="imgee">
+     <img src="imagess\img.jpg">
+     </div>
    </div>
-   
    <div class="content">
   <div class="title">
-     <h2> <?php  echo "#".''.$count.'  '.$data['title'];?></h2>  
+     <h2> <?php  echo "".''.$count.'  '.$data['title'];?></h2>  
   </div>
   <div class="time">
      Posted On : <?php echo $data['datetime'];?>
      </div>
+     <!-- <div class="imgee">
+     <img src="imagess\img.jpg">
+     </div> -->
    <div class="desc">
      <?php echo $data['short_desc'];?>
    </div>
@@ -84,11 +91,15 @@ error_reporting(0);
    <div class="btnn">
    <a href="content.php?id=<?php echo $data['cid']?>"  name="edit">READ MORE</a>
     <hr>
+   
+   </div>
    </div>
    </div>
    <?php } ?>
+   <footer>
    <div class="footer">
-  <?php  echo $_SESSION['aid']; ?>
+  
    </div>
+   </footer>
 </body>
 </html>

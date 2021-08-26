@@ -14,7 +14,7 @@ if(isset($_SESSION['typee'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="log.css">
+    <!-- <link rel="stylesheet" href="log.css"> -->
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
@@ -50,13 +50,20 @@ if(isset($_SESSION['typee'])){
     $count++;
  ?>
    </div>
-   <div class="content">
-  <div class="title">
+   <div class="mcontent">
+     <div class="lcontent">
+     <div class="imgee">
+     <div class="title">
      <h2> <?php  echo "#".''.$count.'  '.$data['title'];?></h2>  
   </div>
   <div class="time">
      Posted On : <?php echo $data['datetime'];?>
      </div>
+     <img src="imagess\<?php echo $data['image'];?>">
+     </div>
+     </div>
+   <div class="content">
+ 
    <div class="desc">
      <?php echo $data['short_desc'];?>
    </div>
@@ -69,6 +76,7 @@ if(isset($_SESSION['typee'])){
 
    </div>
    <hr>
+   </div>
    </div>
    <?php } ?>
    <div class="footer">

@@ -69,19 +69,18 @@ session_start();
  ?> <div class="mcontent">
    <div class="lcontent">
    <div class="imgee">
-     <img src="imagess\img.jpg">
-     </div>
-   </div>
-   <div class="content">
-  <div class="title">
+   <div class="title">
      <h2> <?php  echo "".''.$count.'  '.$data['title'];?></h2>  
   </div>
   <div class="time">
      Posted On : <?php echo $data['datetime'];?>
      </div>
-     <!-- <div class="imgee">
-     <img src="imagess\img.jpg">
-     </div> -->
+     <img src="imagess\<?php echo $data['image'];?>">
+     </div>
+   </div>
+   <div class="content">
+  
+  
    <div class="desc">
      <?php echo $data['short_desc'];?>
    </div>
@@ -90,11 +89,13 @@ session_start();
    </div>
    <div class="btnn">
    <a href="content.php?id=<?php echo $data['cid']?>"  name="edit">READ MORE</a>
-    <hr>
+   
    
    </div>
    </div>
+   <hr >
    </div>
+   
    <?php } ?>
    <footer>
    <div class="footer">

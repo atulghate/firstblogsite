@@ -7,26 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<div class="navigation">
-    
-    <div class="left">
-    <h2>iBlog</h2>
-    <!-- <h2>wellcome :</h2> -->
-    <!-- <h2> <?php //echo $_SESSION['pass'];?></h2> -->
-
-    </div>
- <div class="right">
+<nav>
+<input type="checkbox"  id="check">
+  <label for="check" class="checkbtn">
+  <i class="fas fa-bars"></i> 
+  </label>
+  <label class="logo">iBLOG</label>
  <ul>
      <li><a href="index.php">Home</a></li>
   <li><a href="logout.php">Logout</a></li>
   <li><a href="admin_dash.php">Back</a></li> 
   </ul>
-</div>
-</div>
+</nav>
 <center>
+    <div class="editbox">
 <div class="post">
         <h1>Edit Post</h1>
     </div>
@@ -65,6 +63,7 @@ include("dbcon.php");
  ?>
 </div>
 </center>
+<div>
 </body>
 </html>
 <?php

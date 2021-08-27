@@ -11,12 +11,54 @@
   list-style: none;
   box-sizing: border-box;
 }
- 
+h2{
+  margin-left: 15px;
+  font-size: 28px;
+}
+.boxx {
+  margin-top: 325px;
+}
+hr{
+  margin: auto;
+  width: 70%;
+}
+.upimage {
+  margin-top: 23px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+}
+.mcontent{
+  /* border:2px solid black;
+  border: brown;
+  background-color: cyan; */
+  width: 100%;
+  height: auto;
+}
+/* form {
+  margin-top: 138px;
+} */
+.btnn {
+  padding-top: 14px;
+}
 nav{
-  background-image: url('img.jpg');
-  height: 375px; 
+   background-image: url('Blog-Web-Header-Background.jpg'); 
+  height: 400px; 
   width: 100%;
   margin-bottom: 50px;
+}
+
+ .imgee {
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 220px;
+    height: 400px;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 450px;
+  margin-left: 24px;
 }
 label.logo{
   color:white;
@@ -41,7 +83,7 @@ nav ul{
     
  }
  a.active,a:hover{
-   background:#1b9bff;
+   /* background:#1b9bff; */
    transition: .5s;
  }
  .checkbtn{
@@ -57,6 +99,38 @@ nav ul{
    display: none;
  }
 
+ .btnlist{ 
+  width: 100%;
+  justify-content: center;
+  color: black;
+   display: inline; 
+  padding-left: 400px;
+  padding-top: 20px;
+  margin-bottom: 60px; 
+}
+.btnlist a {
+  list-style: none;
+  color: rgb(247, 250, 252);
+  background: #00293f;
+  padding: 12px;
+  width: 20%;
+  list-style: none;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 5px;
+  padding-left: -40px;
+  padding-right: -40px;
+  margin: 1px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  float: left;
+  display: inline-block;
+  margin-left: 60px;
+}
+.btnlist {
+  margin-left: -167px;
+  margin-top: -87px;
+}
 /* .navigation {
    display: flex; 
  justify-content: space-between;
@@ -95,65 +169,37 @@ margin-bottom: 44px;
   margin-right: 63px;
   margin-left: 54px;
 } 
-
-/* .left a{  
-  display: inline;
-  text-decoration: none;
-  list-style-type: none;
-  display: block;
-  font-size: px;
-  color: #ffffff;
-  justify-content: center;
-  cursor: pointer;
-  margin-right: 39px;
-  font-size: 30px;
-
+.pimg{
+  height: 400px;
 }
-  */
- /* .right ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-   */
-/* li {
-  float: left;
-} */
 
- /* .right li a {
-  font-size: 30px;
-  text-decoration: none;
-  list-style-type: none;
-  display: block;
-  padding-top: 30px;
-  padding-right: 40px;
-  color:white;
-  cursor: pointer;
-} */
-/* .left  a:hover{
-  color: rgb(20, 3, 8);
-  
-} */
-
-/* .right ul li a:hover{
-  color: rgb(4, 1, 19);
- )
-   */
-  
-
+ 
 .content{
   
-   /* background:#ebeaeeee; */
-    margin: auto;
-    height: auto; 
-    width: 700px;
+  margin: auto;
+    height: auto;
+    width: 607px;
     padding: 2%;
     /* margin-top: 100px; */
     word-spacing: 20%;
     font-family: 'Ubuntu', sans-serif;
     font-size: 24px;
-
-
+    /* display: flex; */
+    /* position: absolute; */
+    float: right;
+    margin-top: -396px;
+    width: 589px; 
+}
+#ccontent{  
+     /* margin: auto; */
+    height: auto; 
+    width: 700px;
+    padding: 2%; 
+    margin-top: 32px; 
+     word-spacing: 20%;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 24px;
+    margin-right: 380px;
 }
 .footer{
   margin-top: 40px;
@@ -170,8 +216,8 @@ margin-bottom: 44px;
 }
 .content {
   
-  margin-top: -40px;
-  
+  margin-top: -375px;
+  margin-right: 210px;
 }
  
 .content.title{
@@ -243,8 +289,11 @@ cursor: pointer;
        margin:top 30px;
        color:rgb(56, 8, 187);
        font-weight:30px;
-       margin-right:30px; /*change*/
-     }
+       /* margin-right:30px; change */
+       font-size: 21px;
+    /* background-color: indianred; */
+}
+    
      .btnn a{
       margin-left: 8px;
        margin:top 20px;
@@ -334,10 +383,57 @@ cursor: pointer;
       overflow-x: hidden;
   
     }
+    nav {
+      background-image: none;
+      height: 83px;
+      width: 100%;
+      margin-bottom: 50px;
+      background-color: black;
+  }
+
+    h2 {
+      margin-left: -210px;
+      font-size: 28px;
+  } 
+  .time {
+      margin-left: -190px;
+      padding-top: 20px;
+      padding-left: 77px;
+  } 
+  img {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      
+      width: 462px;
+      float: left;
+      margin-left: -118px;
+      margin-bottom: 68px;
+  }  
+  h2 {
+      margin-left: -123px;
+      font-size: 28px;
+      margin-right: -198px;
+  }
+  .content {
+      margin-top: -2px;
+      width: 611px;
+      padding: -1%;
+      font-size: 29px;
+      margin-right: -379px;
+      display: table-column;
+  }
+
    nav{
-    width: 223%;
+    width: 227%;
 
      }
+     nav ul{
+      float: left;
+      /* margin-right: 20px; */
+    }
+     nav#navx {
+      width: 293%;
+    }
     
     .checkbtn{
       display: block;
@@ -345,12 +441,12 @@ cursor: pointer;
     ul{
       position: fixed;
       width: 100%;
-      height: auto;
-      background: rgb(43, 31, 204);
+      height: 100%;
+      background: rgb(5, 4, 15);
       top: 80px;;
       left:-100%;
       text-align:center;
-      transition: all .5s;
+      /* transition: all .5s; */
 
     }
     nav ul li{
@@ -358,14 +454,15 @@ cursor: pointer;
       line-height: 30px;
       margin: 30px 0;
       line-height: 30px;
+      padding: 50px;
     }
     nav ul li a{
-      font-size: 20px;
+     font-size: 40px;
 
     }
     a:hover,a:active{
       background: none;
-      color: turquoise;
+      /* color: turquoise; */
     }
     #check:checked ~ ul{
       left:0;
@@ -385,6 +482,7 @@ cursor: pointer;
       margin-top: -101px;
        width: 649px;
        padding: 9%;
+       font-size: 29px;
    }
     
     .left h2{
@@ -414,7 +512,32 @@ cursor: pointer;
    .hpost{
      margin-left: 300px;
    }
+   textarea {
+    margin-left: -38px;
+   }
+   .desc{
+     font-size: 22px;
+    margin-right: -13px;
+  
+   }
+   .hpost {
+    margin-right: 286px;
+   }
+   input[type="submit"] {
+    border-radius: 8px;
+    font-weight: bold;
+    margin-left: -7px;
+   }
+   .phead {
+    margin-right: 275px;
+    padding-right: 51px;
+   }
+   .time1 {
+    margin-left: 20px;
+    padding-top: 11px;
+    margin-bottom: 14px;
   }
+}
 
   @media screen and (min-width:400px) and (max-width:800px){
 
@@ -425,12 +548,20 @@ cursor: pointer;
         position: fixed;
         width: 100%;
         height: auto;
-        background: rgb(43, 31, 204);
+        background: rgb(3, 2, 14);
         top: 80px;
         left:-100%;
         text-align:center;
-        transition: all.5s;
+        /* transition: all.5s; */
 
+      }
+
+      .imgee{
+        margin-left: 71px;
+      }
+      
+      nav#navx {
+        width: 122%;
       }
       nav ul li{
         display: block;
@@ -444,7 +575,7 @@ cursor: pointer;
       }
       a:hover,a.active{
         background: none;
-        color: turquoise;
+        /* scolor: turquoise; */
       }
       #check:checked ~ ul{
         left:0;
@@ -452,22 +583,52 @@ cursor: pointer;
       h2{
         margin-top: 65px;
       }
+      hr {
+        margin-right: 86px;
+        width: 76%;
+    }
     .right li a{
       padding-right: 26px;
     }
-    
-    .content {
-      margin-top: -75px;
+   
+      
+    img {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 576px;
+      margin-left: 24px;
+      margin-top: 30px;
+      height: 372px;
     }
+    .content {
+      margin-top: 87px;
+      margin-right: 85px;
+      width: 617px;
+   }
     .content h1{
       margin-top: 44px;
+      
     }
-    hr{ 
-         margin-right: 26px;
-    }
+    hr {
+      margin-right: 68px;
+      width: 78%;
   }
+  }
+  .boxx{
+     margin-top: 200px;
+  }
+   table {
+    width: 932px;
+    margin-top: 20px;
+    padding: 67px;
+    font-size: 20px;
+   }
 
   @media screen  and (min-width:800px) and (max-width:1400px){
+    body{
+      overflow-y: hidden;
+    }
     .content{
       margin-top: -135px;
     margin-bottom: 8px;
@@ -491,6 +652,9 @@ cursor: pointer;
     .content.title{
       margin-top: 50px;
     }
+    .boxx {
+      margin-top: 321px;
+  }
    
   }
   

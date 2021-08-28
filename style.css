@@ -11,9 +11,37 @@
   list-style: none;
   box-sizing: border-box;
 }
+
+:root{
+   --white:white;
+   --black:rgb(0, 0, 0);
+   --orange:rgb(5, 4, 1);
+   /* --white:rgb(7, 2, 2);
+   --black:rgb(252, 249, 248);
+   --orange:orange; */
+}
+
+.darkmode{
+    --white:rgb(7, 2, 2);
+   --black:rgb(252, 249, 248);
+   --orange:orange; 
+}
+
+  img#icon {
+    width: 52px;
+    /* border: 5px solid white; */
+    float: right;
+    margin-right: -394px;
+    /* padding: 5px; */
+    margin-top: 17px;
+    cursor: pointer;
+    height: 45px;
+}
+
 h2{
   margin-left: 15px;
   font-size: 28px;
+  color:var(--orange);
 }
 .boxx {
   margin-top: 325px;
@@ -54,11 +82,12 @@ nav{
     height: 400px;
 }
 img {
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 4px;
   padding: 5px;
   width: 450px;
   margin-left: 24px;
+  height: 304px;
 }
 label.logo{
   color:white;
@@ -69,7 +98,7 @@ label.logo{
 }
 nav ul{
   float: right;
-  margin-right: 20px;
+  margin-right: 80px;
 }
  nav ul li{
    display: inline-block;
@@ -156,9 +185,10 @@ margin-bottom: 44px;
 }  */
 
   body{
-     background: #ffff;
+     background:var(--white);
     font-family: 'Ubuntu', sans-serif;
     overflow-x: hidden;
+    color:var(--white);
   }
 .left h2{
   justify-content: center;
@@ -175,7 +205,7 @@ margin-bottom: 44px;
 
  
 .content{
-  
+   
   margin: auto;
     height: auto;
     width: 607px;
@@ -216,7 +246,7 @@ margin-bottom: 44px;
 }
 .content {
   
-  margin-top: -375px;
+  margin-top: -354px;
   margin-right: 210px;
 }
  
@@ -305,13 +335,15 @@ cursor: pointer;
       .time{
         margin-left: 20px;
         padding-top: 20px;
+        color:var(--orange);
+        margin-top: 20px;
       }
     .time1{
       margin-left: 20px;
       padding-top: 0px;
     }
     .desc{
-      color: black;
+      color:var(--black);
       padding: 20px;
       margin:left 40px;
       font-size: 20px;
@@ -378,10 +410,10 @@ cursor: pointer;
     padding-top: 20px;
   }
 
-  @media screen and (max-width:420px) {
+  @media screen and (max-width:440px) {
     body{
       overflow-x: hidden;
-  
+       width: 314px;
     }
     nav {
       background-image: none;
@@ -389,28 +421,37 @@ cursor: pointer;
       width: 100%;
       margin-bottom: 50px;
       background-color: black;
+      position: sticky;
+       top: 0;
   }
+  img#icon {
+    
+    margin-right: 18px;
+    
+    }
 
     h2 {
       margin-left: -210px;
       font-size: 28px;
   } 
   .time {
-      margin-left: -190px;
+      margin-left: -162px;
       padding-top: 20px;
-      padding-left: 77px;
+      padding-left: 16px;
   } 
+  .lcontent{
+    width:150%;
+  }
   img {
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      
-      width: 462px;
-      float: left;
-      margin-left: -118px;
-      margin-bottom: 68px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 558px;
+    float: left;
+    margin-left: -136px;
+    margin-bottom: 68px
   }  
   h2 {
-      margin-left: -123px;
+      margin-left: -139px;
       font-size: 28px;
       margin-right: -198px;
   }
@@ -539,8 +580,10 @@ cursor: pointer;
   }
 }
 
-  @media screen and (min-width:400px) and (max-width:800px){
-
+  @media screen and (min-width:440px)  and (max-width:800px){
+      body{
+        width:800px;
+      }
       .checkbtn{
         display: block;
       }
@@ -603,8 +646,8 @@ cursor: pointer;
     }
     .content {
       margin-top: 87px;
-      margin-right: 85px;
-      width: 617px;
+      margin-right: 88px;
+      width: 647px;
    }
     .content h1{
       margin-top: 44px;
@@ -625,14 +668,17 @@ cursor: pointer;
     font-size: 20px;
    }
 
-  @media screen  and (min-width:800px) and (max-width:1400px){
+  @media screen  and (min-width:800px) and  (max-width:1024px){
     body{
-      overflow-y: hidden;
+      overflow-x: hidden;
+      width: 1024px;
     }
-    .content{
-      margin-top: -135px;
-    margin-bottom: 8px;
-     }
+    .content {
+      margin-top: -371px;
+      margin-right:0px;
+      width: 517px;
+      
+    }
     label.logo{
       font-size:30px;
       padding-left: 50px;
@@ -655,6 +701,29 @@ cursor: pointer;
     .boxx {
       margin-top: 321px;
   }
+  .imgee {
+    margin: auto;
+    margin-top: 50px;
+    margin-left: 58px;
+    height: 400px;
+}
    
   }
-  
+  @media screen  and (min-width:1024px) and (max-width:1100px){
+     .content{
+       width: 1100px;
+     }
+  }
+  @media screen  and (min-width:1100) and (max-width:1480px){
+    body{
+      overflow-x: hidden;
+    }
+    img{
+      width: 436px;
+    }
+    .content {
+      margin-top: -375px;
+      margin-right: 196px;
+      width: 1300px;
+  }
+ }

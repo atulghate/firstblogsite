@@ -57,7 +57,7 @@ session_start();
 ?>
 
 </ul>
-
+ <img src="sun.png" id="icon">
 </nav>
  <?php
  include("dbcon.php");
@@ -74,7 +74,7 @@ session_start();
   </div>
   <div class="time">
      Posted On : <?php echo $data['datetime'];?>
-     </div>
+     </div class="pimg" >
      <img src="imagess\<?php echo $data['image'];?>">
      </div>
    </div>
@@ -102,5 +102,11 @@ session_start();
   
    </div>
    </footer>
+   <script>
+      var icon= document.getElementById("icon");
+      icon.onclick =function(){
+        document.body.classList.toggle("darkmode");
+      }
+   </script>
 </body>
 </html>

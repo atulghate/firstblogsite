@@ -1,5 +1,13 @@
 <?php 
 
+session_start();
+if(isset($_SESSION['pass'])){
+  $aid= $_SESSION['aid'];
+  $aname= $_SESSION['pass'];
+}else{
+    echo " " ;
+}
+
 include("dbcon.php");
 
  error_reporting(0); 
@@ -30,8 +38,9 @@ if(isset($_POST['submit'])){
 
 	<link rel="stylesheet" href="com.css">
     <link rel="stylesheet" href="style.css">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<title>Comment </title>
+	
 </head>
 <body>
 <nav>  
@@ -42,11 +51,21 @@ if(isset($_POST['submit'])){
   <label class="logo">iBLOG</label>
     <ul>
   <li> <a href="index.php">Home</a></li>
+  <li> <a href="index.php">BACK</a></li>
+  <li><a href="#">Services</a></li> 
+  <li> <a href="#">about us</a></li>
+	
+
   <?php
   if(isset($_SESSION['pass'])){
   ?>
-  <li><a href="logout.php">Logout</a></li>
- <?php } ?>
+     <li><a href="logout.php">Logout</a></li>
+     <?php }else{ ?>
+	 <li> <a href="login.php">login</a></li>
+	 <li> <a href="registreion.php">register</a></li>
+	
+
+  <?php } ?>
   <?php
  if(isset($_SESSION['typee'])){
  ?> <li><a href="admin_dash.php">Admin</a></li>
@@ -68,7 +87,7 @@ if(isset($_POST['submit'])){
 				</div>
 				<div class="input-group">
 					<label for="email">Email</label>
-					<input type="email" name="email" id="email" placeholder="Enter your Email" required>
+					<input type="email" name="email" id="email" placeholder="Enter your Email" >
 				</div>
 			</div>
 			<div class="input-group textarea">
@@ -76,11 +95,11 @@ if(isset($_POST['submit'])){
 				<textarea id="comment" name="comment" placeholder="Enter your Comment" required></textarea>
 			</div>
 			<div class="input-group">
-				<button name="submit" class="btn">Post Comment</button>
+				<button name="submit" id="displaydata" class="btn">Post Comment</button>
 			</div>
            
 		</form>
-		<div class="prev-comments">
+		<div class="prev-comments" id="response">
 			<?php  
                 $cid = $_REQUEST['id'];
                 include("dbcon.php");
@@ -93,6 +112,10 @@ if(isset($_POST['submit'])){
 				<h4><?php echo $data['cname']; ?></h4>
 				 <a href="mailto:<?php echo $data['date']; ?>"><?php echo $data['date']; ?></a> 
 				<p><?php echo $data['comment']; ?></p>
+                <?php 
+                if(isset($aname)){ ?>
+                <a href="delete_com.php?id=<?php echo $data['rid']?>">DELETE</a>
+                <?php } ?>
 			</div>
 			<?php
 
@@ -102,5 +125,6 @@ if(isset($_POST['submit'])){
 			?>
 		</div>
 	</div>
+	
 </body>
 </html>

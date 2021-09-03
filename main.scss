@@ -1,0 +1,237 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-size: cover ;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+
+*{
+ 
+   margin: 0%;
+   padding: 0%;
+   font-family: 'Ubuntu', sans-serif;
+   text-decoration: none;
+   list-style: none;
+   
+ }
+ nav{
+    background-image: url('Blog-Web-Header-Background.jpg'); 
+   height: 313px; 
+   width: 100%;
+   margin-bottom: 50px;
+
+   ul{
+    float: right;
+    margin-right: 20px;
+
+     li{
+        display: inline-block;
+        line-height: 80px;
+        margin: 0 5px;
+        a{  
+            color: white;
+            font-size: 17px;
+            text-transform: uppercase;
+            cursor: pointer;
+          }
+      } 
+  }
+  
+  #loginpage{
+    width: 100%;
+    height: 200px;
+    background-color: black;
+  }
+  
+  label.logo{
+    color:white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color:white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+ }
+ #check {
+    display: none;
+  }
+ }
+
+
+
+
+ .logbox{
+      display: block;
+      width: 360px;
+      height: 379px; 
+      background:#fff;
+      color: black;
+      top:51%;
+      left:50%;
+      position:absolute;
+      transform: translate(-50%,-50%);
+      box-sizing: border-box;
+      padding: 54px 30px;
+      border-radius: 20px;
+      border: 1px solid black;
+      margin-top: 156px;
+      margin-bottom: 100px;
+    
+       h1{
+        margin: 0;
+        padding: 0 0 15px;
+        text-align: left;
+        font-size: 24px;
+     }
+      p{
+         margin: 0;
+         padding: 0;
+         font-weight: bold; 
+         margin-right: 219px;
+     }
+      input{
+         width: 100%;
+         margin-bottom: 21px;
+    
+     }
+
+
+      input[type="text"],input[type="password"]{
+        border: none;
+        background: transparent;
+        outline: none;
+        height: 40px;
+        /* padding: .7rem 2rem; */
+        opacity: .8;
+        /* color: #FFF; */
+        /* background: #00b894; */
+        border: none;
+        outline: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: .3s ease-in;
+        
+   
+    }
+      input[type="submit"]{
+        border:none;
+        outline: none;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 20px;
+        color: #ffff;
+        opacity: .8;
+        color: #FFF;
+        background: #00b894;
+        border: none;
+        outline: none;
+        /* border-radius: 3px; */
+        cursor: pointer;
+        font-size: 1rem;
+        transition: .3s ease-in;
+    }
+     input[type="checkbox"]{
+
+        height: 20px;
+        
+        }
+        .rm{
+
+            display: flex;
+            margin-right: 188px;
+            margin-bottom: 17px;
+            
+        }
+
+  } 
+  .regbox{
+    display: block;
+    width: 390px; 
+    height: 430px; 
+    background:#fff;
+    color:black; 
+    top:50%;
+     left:50%;
+     position: relative;
+      transform: translate(-50%,-50%);
+     box-sizing: border-box;
+     padding: 50px 30px;
+     border-radius: 20px;
+     border: 1px solid black;
+     margin-top: 300px;
+ 
+     input[type="submit"]{
+        width: 43%;
+        border:none;
+        outline: none;
+        height: 33px;
+        background-color: #00b894;
+        font-size: 18px;
+        border-radius: 20px;
+        color: white;
+        
+     }
+
+      h1{
+        margin: 0;
+        padding: 0 0 15px;
+        text-align: center;
+        font-size: 24px;
+      }
+     table{
+        padding-top: 10px;
+
+        th{
+            padding: 5px;
+        }
+    }
+     
+    .sub{
+        padding-top: 20px;
+       cursor: pointer;
+       padding: 0 0 20px;
+       text-align: center;
+       font-size: 22px;
+       
+    }
+
+
+     table{
+        padding-bottom: 30px;
+
+        th{
+            padding-right: 15px;
+         }
+          td{
+             padding-left: 15px;
+          }
+    }
+      
+      input[type="text"],input[type="password"]{
+        /* border: 2px solid whitesmoke; */
+        border: 1px whitesmoke; 
+        background: transparent;
+        outline: none;
+        height: 35px;
+        font-size: 13px;
+        color:black;
+    }
+   
+ }
+
+ .footer{
+    margin-top: 40px;
+      height: 100px;
+      background:#00293f;
+      background-image: url('img.jpg');
+  }

@@ -6,6 +6,10 @@ if(isset($_SESSION['typee'])){
 }else{
     header('location:index.php');
 }
+
+spl_autoload_register(function($class){
+  require_once($class.'.php');
+});
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +18,7 @@ if(isset($_SESSION['typee'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="log.css"> -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
 </head>
@@ -29,32 +32,35 @@ if(isset($_SESSION['typee'])){
      <ul>
     <li>  <a href="index.php">Home</a></li>
      <li> <a href="author_list.php">Authors List</a></li>
+     <li><a href="create_admin.php">Add Post</a></li>
+     <li>  <a href="registretion.php">Add Auther</a></li>
+      <li> <a href="">My Details</a></li>
      <li> <a href="logout.php">Logout</a>  </li>
   </ul>
   </nav>
    </div>
-   <div class="btnlist">
-     <ul>
-     <li><a href="create_admin.php">Add Post</a></li>
-     <li>  <a href="registretion.php">Add Auther</a></li>
-     <li>  <a href="author_list.php">Auther List</a></li>
-      <li> <a href="">My Details</a></li>
-      </ul>
-   </div>
+  
+    
+     
   <?php 
-   include("dbcon.php");
-  $qry="SELECT * FROM `post` INNER JOIN author_info ON post.author_id = author_info.author_id ORDER BY cid DESC ";
- $run=mysqli_query($conn,$qry);
-  $count=0;
-  while($data = mysqli_fetch_assoc($run)){
-    $count++;
+
+
+  $obj = new getpost();
+   $datas = $obj->get1data("SELECT * FROM `post` INNER JOIN author_info ON post.author_id = author_info.author_id ORDER BY cid DESC ");
+
+        
+    foreach ($datas as $data){
+
+  ?> <div class="postbox">  <?php
+  
+    
  ?>
-   </div>
+   
    <div class="mcontent">
      <div class="lcontent">
      <div class="imgee">
      <div class="title">
-     <h2> <?php  echo "#".''.$count.'  '.$data['title'];?></h2>  
+     <h2> <?php  echo "".'  '.$data['title'];?></h2>  
   </div>
   <div class="time">
      Posted On : <?php echo $data['datetime'];?>
@@ -73,12 +79,18 @@ if(isset($_SESSION['typee'])){
    <div class="btnn">
    <a href="admin_edit.php?id=<?php echo $data['cid']?>"  name="edit">Edit Post</a>
    <a href="delete.php?id=<?php echo $data['cid']?>"  name="edit">Delete Post</a>
+   
 
    </div>
    <hr>
    </div>
    </div>
-   <?php } ?>
+   <?php } 
+    
+  
+ 
+   ?>
+   </div>
    <div class="footer">
 </body>
 </html>

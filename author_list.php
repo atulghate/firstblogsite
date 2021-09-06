@@ -1,3 +1,17 @@
+
+<?php
+session_start();
+$typee= $_SESSION['typee'];
+if(isset($_SESSION['typee'])){
+  $typee= $_SESSION['typee'];
+}else{
+    header('location:index.php');
+}
+
+spl_autoload_register(function($class){
+  require_once($class.'.php');
+});
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,27 +20,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="log.css"> -->
-    
+     <!-- <link rel="stylesheet" href="log.css">  -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-
-<div class="navigation">
-  <div  class="left">
-     <a href="#">iBlog</a>
-     <a href="index.php">Home</a>
- </div>
-  <div class="right1">
-      <a href="author_list.php">Authors List</a>
-      <a href="logout.php">Logout</a>  
-  </div>
-   </div>
+<nav id="navx">
+  <input type="checkbox"  id="check">
+  <label for="check" class="checkbtn">
+  <i class="fas fa-bars"></i> 
+  </label>
+  <label class="logo">iBLOG</label>
+    <ul>
+   <li>  <a href="index.php">Home</a></li> 
+      <li><a href="author_list.php">Authors List</a></li>
+     <li> <a href="logout.php">Logout</a></li>
+</nav>
    <center>
 <?php 
-include("dbcon.php");
- $qry="SELECT * FROM `author_info` WHERE `type`='author' ";
- $run = mysqli_query($conn,$qry);
- $count=0;?>
+
+
+$obj = new getpost();
+ $datas = $obj->get1data("SELECT * FROM `author_info` WHERE `type`='author'");
+    $count=0;
+?>
  <table>
      <tr>
          <th>No.</th>
@@ -36,7 +53,7 @@ include("dbcon.php");
          <th>EDIT</th>
          <th>DELETE</th>
      </tr>
-  <?php foreach( $run as $f){ $count++; ?>
+  <?php foreach( $datas as $f){ $count++; ?>
  
     <tr> <td><?php echo $count;?></td>
         <td><?php echo $f['fname'] ; ?></td>
@@ -53,6 +70,7 @@ include("dbcon.php");
  </center>
 <?php
  }
+
 ?>
 </body>
 </html>

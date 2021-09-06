@@ -1,3 +1,9 @@
+<?php
+spl_autoload_register(function($class){
+  require_once($class.'.php');
+});
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,28 +12,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="log.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<div class="navigation">
-  <div  class="left">
-  <a href="#">iBlog</a>
-   <a href="index.php">Home</a> 
-
-   </div>
-  <div class="right">
+<nav>
+  <input type="checkbox"  id="check">
+  <label for="check" class="checkbtn">
+  <i class="fas fa-bars"></i> 
+  </label>
+  <label class="logo">iBLOG</label>
     <ul>
-    <li><a href="author_list.php">Back</a></li>  
-    </ul>
-  </div>
-   </div>
+    
+    <li> <a class="active" href="index.php">Home</a></li>
+    <li><a href="author_dash.php">Back</a></li>
+   <li><a href="logout.php">Logout</a></li> 
+  <li><a href="admin_dash.php">Admin</a></li>
+  </ul>
+  </nav>
    <center>
    <?php 
-include("dbcon.php");
-  $rid = $_REQUEST['id'];
-  
- $qry="SELECT * FROM `author_info` WHERE  author_id= $rid ";
- $run = mysqli_query($conn,$qry);
- foreach( $run as $f){
+
+            
+            $rid = $_REQUEST['id'];
+            $obj = new getpost();
+             $datas = $obj->get1data("SELECT * FROM `author_info` WHERE  author_id= $rid ");
+                 
+             foreach ($datas as $f){
  
      ?> 
 <div class="regbox">
@@ -63,8 +74,8 @@ include("dbcon.php");
   </div>
   </form>
   <?php
- }
- ?>
+}
+?>
 </center>
 
 </div>
@@ -72,7 +83,10 @@ include("dbcon.php");
 </html>
 <?php
 
-include("dbcon.php");
+
+
+
+
 
 if(isset($_POST['submit'])){
   
@@ -82,13 +96,24 @@ if(isset($_POST['submit'])){
  $mobile =$_POST['mobile'];
  $password =$_POST['password'];
  $type=$_POST['type']; 
- $qry="UPDATE `author_info` SET `fname`='$fname',`gender`='$gender',`email`='$email',`mobile`='$mobile',`password`='$password',`type`='$type' WHERE author_id =$rid";
-$runn= mysqli_query($conn,$qry);
-  
-    header("location:author_list.php");
+
+
+$rid = $_REQUEST['id'];
+$obj1 = new update1();
+$obj1->update ('author_info',['fname'=> $fname,'gender'=>$gender,'email'=>$email,'mobile'=> $mobile,'password'=> $password,'type'=> $type ], 'author_id= "'.$rid.'"');
+
+   header("location:author_dash.php");
+
+
+    if ($obj1) {
+      echo " <script>alert(' Updated successfully.')</script>";
+    } else {
+      echo "<script>alert(' does not add.')</script>";
+    }
+    header("location:author_dash.php");
 }else{
   echo " ";
 }
 
-  ?>
+  ?> 
  

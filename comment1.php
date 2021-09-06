@@ -8,20 +8,24 @@ if(isset($_SESSION['pass'])){
     echo " " ;
 }
 
-include("dbcon.php");
+spl_autoload_register(function($class){
+	require_once($class.'.php');
+  });
+// include("dbcon.php");
 
- error_reporting(0); 
+error_reporting(0); 
 if(isset($_POST['submit'])){
     $cid = $_REQUEST['id'];
     $cname = $_POST['cname'];
     $msg = $_POST['comment'];
     $email=$_POST['email'];
    
-    $qry="INSERT INTO `comment_tb`( `cid`, `cname`, `comment`,`email`) VALUES (' $cid','$cname','$msg','$email')" ;
-    $run=mysqli_query($conn,$qry);
+	include("insert.php");
 
-
-	if ($run) {
+	$obj = new insert();
+   $obj->insert1('comment_tb',['cid'=>$cid,'cname'=>$cname,'comment'=>$msg,'email'=>$email,]);
+   
+	if ($obj) {
 		echo "<script>alert('Comment added successfully.')</script>";
 	} else {
 		echo "<script>alert('Comment does not add.')</script>";
@@ -101,12 +105,13 @@ if(isset($_POST['submit'])){
 		</form>
 		<div class="prev-comments" id="response">
 			<?php  
-                $cid = $_REQUEST['id'];
-                include("dbcon.php");
-                $qry="SELECT * FROM `comment_tb` WHERE `cid`='$cid' ORDER BY rid DESC ";
-                $run=mysqli_query($conn,$qry);
-                 $count=0;
-                 while($data = mysqli_fetch_assoc($run)){
+        
+					// include("getpost.php");
+					$cid = $_REQUEST['id'];
+					$obj = new getpost();
+					 $datas = $obj->get1data("SELECT * FROM `comment_tb` WHERE `cid`='$cid' ORDER BY rid DESC  ");  
+					  foreach ($datas as $data){
+				  
 			?>
 			<div class="single-item">
 				<h4><?php echo $data['cname']; ?></h4>

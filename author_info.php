@@ -6,6 +6,10 @@ if(isset($_SESSION['pass'])){
 }else{
     header('location:index.php');
 }
+
+spl_autoload_register(function($class){
+  require_once($class.'.php');
+});
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,27 +18,36 @@ if(isset($_SESSION['pass'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="log.css">
 </head>
 <body>
-<div class="navigation">
-  <div  class="left">
-  <a href="#">iBlog</a>
-   <a href="index.php">Home</a>
-   </div>
-  <div class="right1">
-      <a href="logout.php">Logout</a>  
-      
-  
-  </div>
-   </div>
+<nav>
+  <input type="checkbox"  id="check">
+  <label for="check" class="checkbtn">
+  <i class="fas fa-bars"></i> 
+  </label>
+  <label class="logo">iBLOG</label>
+    <ul>
+      <li><a href="author_dash.php">Home</a></li>
+      <li><a href="logout.php">Logout</a></li>
+
+    </ul>
+    </nav>
    <center>
    <?php 
-include("dbcon.php");
- $qry="SELECT * FROM `Author_info` WHERE author_id= $aid ";
- $run = mysqli_query($conn,$qry);
- foreach( $run as $f){
-     ?>
+
+  
+  $fid = $_SESSION['aid'];
+  $obj = new getpost();
+   $datas = $obj->get1data("SELECT * FROM `Author_info` WHERE author_id= $fid ");
+       
+   foreach ($datas as $f){
+
+
+  ?>
+     
 <div class="regbox">
    <h1>My Details</h1>
     <form action="#" method="post">
@@ -65,6 +78,7 @@ include("dbcon.php");
   </form>
   <?php
  }
+
  ?>
 </center>
 
@@ -73,7 +87,7 @@ include("dbcon.php");
 </html>
 <?php
 
-include("dbcon.php");
+
 
 if(isset($_POST['submit'])){
   
@@ -83,11 +97,14 @@ if(isset($_POST['submit'])){
  $mobile =$_POST['mobile'];
  $password =$_POST['password'];
  
- $query="UPDATE `author_info` SET `fname`='$fname',`gender`='$gender',`email`='$email',`mobile`='$mobile',`password`='$password' WHERE author_id=$aid ";
-$runn= mysqli_query($conn,$query);
 
+$aid = $_SESSION['aid'];
+
+$obj1 = new update1();
+$obj1->update ('author_info',['fname'=> $fname,'gender'=>$gender,'email'=>$email,'mobile'=> $mobile,'password'=> $password ], 'author_id= "'.$aid.'"');
  
-  // header("location:admin_dash.php");
+ 
+  header("location:index.php");
 }else{
   echo " ";
 }

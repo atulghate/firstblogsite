@@ -1,4 +1,9 @@
 
+<?php
+spl_autoload_register(function($class){
+  require_once($class.'.php');
+});
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,14 +37,17 @@
 
 <div class="post"> 
     <?php 
-include("dbcon.php");
-  $rid = $_REQUEST['id'];
   
- $qry="SELECT * FROM `post` WHERE cid = $rid ";
- $run = mysqli_query($conn,$qry);
- if($run){
- foreach( $run as $f){
-     ?>
+    
+            $rid = $_GET['id'];
+            $obj = new getpost();
+             $datas = $obj->get1data("SELECT * FROM `post` WHERE cid = $rid");
+                 
+             foreach ($datas as $f){
+  ?>
+  
+
+     
    <textarea name="title" id="" cols="44" rows="2" placeholder= " Enter blog Title"><?php echo $f['title'];?></textarea>
    <div><div class="desc">
    <textarea name="short_desc" id="" cols="44" rows="5"  placeholder= " Enter short description"><?php echo $f['short_desc'];?></textarea>
@@ -54,12 +62,13 @@ include("dbcon.php");
        <hr>
    </div>
    <?php
- }
 
- }else
- {
-     echo "No Post available";
- }
+
+
+ 
+ } 
+
+
  ?>
 </div>
 </center>
@@ -76,9 +85,8 @@ if(isset($_POST['submit'])){
     $title = $_POST['title'];
  $desc = $_POST['short_desc'];
  $content = $_POST['content'];
-
- $qry ="UPDATE `post` SET `title`='$title',`short_desc`='$desc',`content`='$content' WHERE cid = $rid ";
- $run= mysqli_query($conn,$qry);
+ $obj1 = new update1();
+ $obj1->update ('post',['title'=> $title,'short_desc'=>$desc,'content'=>$content ], 'cid= "'.$rid.'"');
  
  if($run){
      echo"true";

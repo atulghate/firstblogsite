@@ -6,6 +6,10 @@ if(isset($_SESSION['pass'])){
 }else{
     header('location:index.php');
 }
+
+spl_autoload_register(function($class){
+  require_once($class.'.php');
+});
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,9 +21,7 @@ if(isset($_SESSION['pass'])){
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="style.css">
-    <style>
-
-    </style>
+   
 </head>
 <body>
 <nav>
@@ -52,7 +54,7 @@ if(isset($_SESSION['pass'])){
    </div>
    <div class="upimage">
        <span>Upload images</span>
-   <input type="file" name="image" required>
+   <input type="file" name="image" >
    </div>
    <div class="psubmit">
        <input type="submit" value="Add Post" name="submit">
@@ -67,62 +69,74 @@ if(isset($_SESSION['pass'])){
 <div class="hpost">
  <h1>MY POST</h1>
 </div>
-<?php
-
-include("dbcon.php");
-
-$qry="SELECT * FROM `post` INNER JOIN author_info ON post.author_id = author_info.author_id WHERE post.author_id=$aid AND author_info.fname='$aname'  ";
-
- $run=mysqli_query($conn,$qry);
-   $data = mysqli_fetch_assoc($run);
-  while($data = mysqli_fetch_assoc($run)){
-
- ?>
-   </div>
-   <div class="content" id="ccontent">
-  <div class="title">
-      <h1> <?php echo $data['title'];?></h1>
-      <hr>
-  </div>
-   <div class="desc">
-  <h3><h3>
-   <h3><?php echo $data['short_desc'];?>
-  <hr>
-     Date&time:<b><?php echo $data['datetime'];?></b>
-   </div>
-   <div class="btn">
-   <a href="update.php?id=<?php echo $data['cid']?>"  name="edit">EDIT POST</a>
-   <a href="delete.php?id=<?php echo $data['cid']?>"  name="edit">DELETE POST</a>
-
-   </div>
-   </div>
-   <?php } ?>
-
-
 </center>
-</body>
-</html>
+<?php
+    $aid= $_SESSION['aid'];
+    $obj = new getpost();
+     $datas = $obj->get1data("SELECT * FROM `post` INNER JOIN author_info ON post.author_id = author_info.author_id WHERE post.author_id= $aid");
+     
+         
+     foreach ($datas as $data){
+?>
+    
+    <div class="mcontent">
+      <div class="lcontent">
+      <div class="imgee" id="imgee1">
+      <div class="title">
+      <h2> <?php  echo $data['title'];?></h2>  
+   </div>
+   <div class="time">
+      Posted On : <?php echo $data['datetime'];?>
+      </div>
+      <img src="imagess\<?php echo $data['image'];?>">
+      </div>
+      </div>
+    <div class="content">
+  
+    <div class="desc">
+      <?php echo $data['short_desc'];?>
+    </div>
+    <div class="time1">
+        Author : <?php echo $data['fname'];?>
+    </div>
+    <div class="btnn">
+     <a href="update.php?id=<?php echo $data['cid']?>"  name="edit">EDIT POST</a>
+     <a href="delete.php?id=<?php echo $data['cid']?>"  name="edit">DELETE POST</a>
+     <a href="comment1.php?id=<?php echo $data['cid']?>"  name="edit"> Comments&nbsp; </a>
+
+
+    </div>
+    <hr>
+    </div>
+    </div>
+  <?php  
+     }
+  ?>
+    <div class="footer">
+ </body>
+ </html>
 <?php
 
-include("dbcon.php");
+
 if(isset($_POST['submit'])){
     if(isset($_POST['content'])){
-    $title = $_POST['title'];
+   $title = $_POST['title'];
     $desc = $_POST['short_desc'];
     $content = $_POST['content'];
      $imagename = $_FILES['image']['name'];
 
      $tempimage = $_FILES['image']['tmp_name'];
      move_uploaded_file($tempimage,"imagess/$imagename");
-    
 
-    $qry="INSERT INTO `post`( `author_id`, `title`, `short_desc`, `content`,`image`) VALUES (' $aid','$title','$desc','$content','$imagename')" ;
-    $run=mysqli_query($conn,$qry);
+     $aid= $_SESSION['aid'];
+     $obj = new insert();
+    $obj->insert1('post',['author_id'=>$aid,'title'=>$title,'short_desc'=>$desc,'content'=>$content,'image'=>$imagename,]);
+    // header("location:index.php");
+ 
+
     }
 
 
-}else{
-    echo" ";
 }
 
 

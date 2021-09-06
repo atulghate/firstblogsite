@@ -1,11 +1,14 @@
 <?php
-include("dbcon.php");
-$rid = $_REQUEST['id'];
-$qry = " DELETE FROM `author_info` WHERE author_id= $rid ";
-$run= mysqli_query($conn,$qry);
 
-// header('location:admin_dash.php');
-?>
-<script>alert('Your post sucsessfully updated');</script> 
- <?php header('location:author_list.php'); 
+
+spl_autoload_register(function($class){
+    require($class.'.php');
+  });
+
+ 
+$rid = $_REQUEST['id'];
+$obj3 = new delete1();
+$obj3->delete('author_info','author_id = "'.$rid.'"');
+ 
+   header('location:author_list.php'); 
 ?>

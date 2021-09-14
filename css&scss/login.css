@@ -1,0 +1,92 @@
+form {
+    /* border: 3px solid #f1f1f1; */
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+
+/*assign full width inputs*/
+
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #00b894;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.cancelbtn {
+    width: 200px;
+    padding: 10px 18px;
+    background-color: #f44336;
+    margin-top: 10px;
+    background: #00b894;
+}
+
+.cancelbtn a {
+    text-decoration: none;
+    color: cornsilk;
+}
+
+.container {
+    margin-top: 118px;
+    padding: 16px;
+    width: 400px;
+    margin: auto;
+    border: 1px solid;
+    /* height: 336px; */
+    height: auto;
+    box-shadow: #6e6867 4px 7px;
+    border-radius: 10px;
+}
+
+h2 {
+    margin-bottom: 13px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+@media screen and (max-width: 400px) {
+    .container {
+        width: 200px;
+    }
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+    form {
+        margin-top: 105px;
+        margin-bottom: 30px;
+        margin-left: 205px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 264px;
+        margin-left: 84px;
+    }
+}

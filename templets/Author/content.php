@@ -125,7 +125,7 @@ $obj->addcomment($cid,$cname,$msg, $email );
 
 
           <div class="desc">
-            <?php echo $data['short_desc']; ?>
+            <?php echo $data['content']; ?>
           </div>
           <div class="time1">
             Author : <?php echo $data['fname']; ?>

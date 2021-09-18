@@ -97,9 +97,15 @@ if (isset($_POST['submit'])) {
     $desc = $_POST['short_desc'];
     $content = $_POST['content'];
     $imagename = $_FILES['fileToUpload']['name'];
-    $target_dir = "\..\..\imagess";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+    $tempimage = $_FILES["fileToUpload"]["tmp_name"];
+
+    // $target_dir = "\..\..\imagess";
+
+    // $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    //move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+
+    move_uploaded_file($tempimage,"../../imagess/$imagename");
+
     $rid = $_REQUEST['id'];
     $obj1 = new Admin();
     $obj1->postupdate($rid, $title, $desc, $content, $imagename);

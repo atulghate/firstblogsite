@@ -1,14 +1,14 @@
 <?php
 session_start();
-$typee= $_SESSION['typee'];
-if(isset($_SESSION['typee'])){
-  $typee= $_SESSION['typee'];
-  $fid= $_SESSION['aid'];
-}else{
-    header('location:index.php');
+if (isset($_SESSION['pass'])) {
+  $aid = $_SESSION['aid'];
+  $aname = $_SESSION['pass'];
+} else {
+  header('location:index.php');
 }
 
-spl_autoload_register(function($class){
+spl_autoload_register(function ($class) {
+  // require_once($class . '.php');
   require_once("../../".$class.'.php');
 });
 ?>
@@ -21,9 +21,10 @@ spl_autoload_register(function($class){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-  <link rel="stylesheet" href="\..\css&scss\index.css">
-  <link rel="stylesheet" href="\..\css&scss\login.css">
+<!-- 
+  <link rel="stylesheet" href="css&scss\log.css">
+  <link rel="stylesheet" href="css&scss\login.css"> -->
+  <link rel="stylesheet" href="\..\css&scss\form.css">
 </head>
 
 <body>
@@ -34,7 +35,7 @@ spl_autoload_register(function($class){
     </label>
     <label class="logo">iBLOG</label>
     <ul>
-      <li><a href="admin_dash.php">Home</a></li>
+      <li><a href="author_dash.php">Home</a></li>
       <li><a href="logout.php">Logout</a></li>
 
     </ul>
@@ -53,9 +54,7 @@ spl_autoload_register(function($class){
 
 <form action="" method="post">
     <div class="container">
-      <!-- <div>
-      <label for=""><h3>My Details</h3></label>
-      </div> -->
+      <h2>My Details</h2>
       <label for=""><b>full name</b></label>
       <input type="text" name="fname" value="<?php echo $f['fname'] ?>" required >
 
@@ -98,7 +97,7 @@ if (isset($_POST['submit'])) {
   $email = $_POST['email'];
   $mobile = $_POST['mobile'];
   $password = $_POST['password'];
-  $type ="admin";
+  $type ="author";
 
   $aid = $_SESSION['aid'];
 
@@ -107,7 +106,7 @@ if (isset($_POST['submit'])) {
   $obj1->updatePost($aid, $fname, $gender, $email,$mobile,$password,$type);
 
 
-  header("location:admin_dash.php");
+  header("location:index.php");
 } else {
   echo " ";
 }

@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  font-family: sans-serif;
+}
+
+@media screen and (max-width: 400px) {
+  body body {
+    overflow-x: hidden;
+  }
+}
+
+* {
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Ubuntu', sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+nav {
+  background-image: url("Blog-Web-Header-Background.jpg");
+  height: 313px;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 400px) {
+  nav {
+    width: 210%;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  nav {
+    height: 228px;
+    top: 63%;
+    padding: 7px 25px;
+  }
+}
+
+nav #check {
+  display: none;
+}
+
+nav .checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+@media screen and (max-width: 400px) {
+  nav .checkbtn {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  nav .checkbtn {
+    display: block;
+  }
+}
+
+nav label.logo {
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  nav label.logo {
+    padding: -1px 100px;
+  }
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 400px) {
+  nav ul {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    background: #070606;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  nav ul {
+    position: fixed;
+    width: 100%;
+    height: auto;
+    background: #000003;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 400px) {
+  nav ul li {
+    display: block;
+    line-height: 30px;
+    margin: 30px 0;
+    line-height: 30px;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  nav ul li {
+    display: block;
+    line-height: 30px;
+    margin: 30px 0;
+    line-height: 30px;
+  }
+}
+
+nav ul li a {
+  color: white;
+  font-size: 17px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 400px) {
+  nav ul li a {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  nav ul li a {
+    font-size: 20px;
+  }
+}
+
+.footer {
+  margin-top: 40px;
+  height: 100px;
+  background: #00293f;
+  background-image: url("img.jpg");
+}
+
+@media screen and (min-width: 400px) and (max-width: 800px) {
+  .footer {
+    width: 713px;
+  }
+}
+
+.fa-bars:before {
+  content: "\f0c9";
+  padding-right: 40px;
+}
+
+#check:checked ~ ul {
+  left: 0;
+}
+
+/*# sourceMappingURL=form.css.map */

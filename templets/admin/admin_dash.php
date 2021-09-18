@@ -19,6 +19,7 @@ spl_autoload_register(function($class){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="\..\css&scss\index.css">
+    <link rel="stylesheet" href="..\..\footer.css">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   
 </head>
@@ -67,7 +68,7 @@ spl_autoload_register(function($class){
    <div class="content">
  
    <div class="desc">
-     <?php echo $data['short_desc'];?>
+   <?php echo substr( $data['short_desc'],0 , 330 );?>
    </div>
    <div class="time1">
        Author : <?php echo $data['fname'];?>
@@ -89,6 +90,6 @@ spl_autoload_register(function($class){
  
    ?>
    </div>
-   <div class="footer">
+   <?php  include("../../footer.php");   ?>
 </body>
 </html>

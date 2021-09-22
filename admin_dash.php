@@ -7,7 +7,7 @@ if(isset($_SESSION['typee'])){
     header('location:index.php');
 }
 
-spl_autoload_register(function($class){
+spl_autoload_register(function($class){  //hey
   require_once($class.'.php');
 });
 ?>

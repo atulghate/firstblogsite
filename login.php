@@ -1,110 +1,136 @@
 <?php
 session_start();
- ?>
+spl_autoload_register(function ($class) {
+  require_once($class.'.php');
+});
+// include("test files\Author.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-   <link rel="stylesheet" href="log.css"> 
-   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>login</title>
+  <!-- <link href="login.css" media="all  " rel="stylesheet" type="text/css" /> -->
+   <link rel="stylesheet" href="css&scss\form.css"> 
+  <link rel="stylesheet" href="css&scss\footer1.css"> 
+  <link rel="stylesheet" href="css&scss\nav.css"> 
+   
 
-   <!-- <link rel="stylesheet" href="style.css"> -->
-</head>
-<body>
-    
-<nav>
-  <input type="checkbox"  id="check">
-  <label for="check" class="checkbtn">
-  <i class="fas fa-bars"></i> 
-  </label>
-  <label class="logo">iBLOG</label>
-    <ul>
-    
-    <li> <a class="active" href="index.php">Home</a></li>
-    <li><a href="registretion.php">Register</a></li>
-  <!-- <li><a href="logout.php">Logout</a></li> -->
-  <?php
- if(isset($_SESSION['typee'])){
- ?> 
-  <li><a href="admin_dash.php">Admin</a></li>
-  <li><a href="logout.php">Logout</a></li>
-  </ul>
-  </nav>
-  <?php
- }
-?> 
   
- 
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-   <div class="logbox">
-     <h1>Login Here</h1>
-     <form action="#" method="post">
-       <p>Username</p>
-       <input type="text" name="email" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie'];}?>" placeholder="Enter Your Email" required>
-       <p>Password</p>
-       <input type="password" name="password"  value="<?php if(isset($_COOKIE['passwordcookie'])){ echo base64_decode ($_COOKIE['passwordcookie']);}?>" placeholder="Enter Your Email" required> 
-        <div class="rm">
-       <input type="checkbox" name="rememberme" id="remember">  
-       <label for="remember me">  Remember Me   </label>    
+</head>
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">iBLOG</label>
+    <ul>
 
-       </div>
-       <input type="submit" value="submit" name="login">
-      </form>
-   </div>
+      <li> <a class="active" href="index.php">Home</a></li>
+      <li><a href="contact.php">Contact Us</a></li>
+      <li><a href="registretion.php">Register</a></li>
+      <li><a href="#">About us</a></li>
+      <li><a href="#">services</a></li>
+
+      <?php
+      if (isset($_SESSION['typee'])) {
+      ?>
+        <li><a href="admin_dash.php">Admin</a></li>
+        <li><a href="logout.php">Logout</a></li>
+
+      <?php
+      }
+      ?>
+    </ul>
+  </nav>
+
+<body>
+
+
+
+<div class="form_div">
+   <form class="form22" action="#" method="post">
+
+    <div class="container">
+      <h3 class="h22">Login Form</h2>
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="email" value="<?php if (isset($_COOKIE['emailcookie'])) {
+                                                                            echo $_COOKIE['emailcookie'];
+                                                                          } ?>" placeholder="Enter Your Email" required> 
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" value="<?php if (isset($_COOKIE['passwordcookie'])) {
+                                                                                    echo base64_decode($_COOKIE['passwordcookie']);
+                                                                                  } ?>" placeholder="Enter Your Email" required>
+
+      <button type="submit" name="login">Login</button>
+      <input type="checkbox" name="rememberme" id="remember" checked="checked"> Remember me &nbsp; &nbsp; &nbsp; &nbsp;
+      <!-- <span class="cancelbtn">
+        <a href="index.php">Cancel</a>
+      </span> -->
+    </div>
+
+  </form>
+</div>
+  <?php  include("footer.php");   ?>
+
 </body>
+
 </html>
 <?php
-  include("dbcon.php");
-  if(isset($_POST['login'])){
-  $email= $_POST['email'];
-  $pass=$_POST['password'];
-  $qry= "SELECT * FROM `author_info` WHERE `email`='$email'  AND `password`='$pass' ";
-  $run= mysqli_query($conn,$qry);
-  $row=mysqli_num_rows($run);
-  if($row < 1){
-     
-      ?>
-     <script>alert('please enter correct password and username');</script> 
-  <?php
-  }
-  else{
 
-    
-      $data = mysqli_fetch_assoc($run);
-      if($data['type']=='admin'){
-         $_SESSION['typee']= $data['type'];
-      $_SESSION['aid']= $data['author_id'];
+if (isset($_POST['login'])) {
+  $email = $_POST['email'];
+  $pass = $_POST['password'];
 
-        if(isset($_POST['rememberme'])){
+  $obj = new Posts();
+  $datas = $obj->getlogin($email, $pass);
+  if (!isset($datas)) {
+?>
+    <script>
+      alert('please enter correct password and username');
+    </script>
+<?php
+  } else {
 
-          setcookie('emailcookie',$email,time()+86400);
-          setcookie('passwordcookie',base64_encode($pass),time()+86400);
-     
-    
-      header("location:admin_dash.php");
-      } else{
-        header("location:admin_dash.php");
-      }
-     } 
-     elseif($data['type']=='author'){
-      $_SESSION['pass']= $data['fname'];
-      $_SESSION['aid']=$data['author_id'];
-      if(isset($_POST['rememberme'])){ 
 
-        setcookie('emailcookie',$email,time()+86400);
-        setcookie('passwordcookie',base64_encode($pass),time()+86400);
-     
-      header("location:index.php");
-    }
-      else{
-        header("location:index.php");
+    // $data = mysqli_fetch_assoc($run);
+    foreach ($datas as $data) {
+      if ($data['type'] == 'admin') {
+        $_SESSION['typee'] = $data['type'];
+        $_SESSION['aid'] = $data['author_id'];
+
+        if (isset($_POST['rememberme'])) {
+
+          setcookie('emailcookie', $email, time() + 86400);
+          setcookie('passwordcookie', base64_encode($pass), time() + 86400);
+
+
+          // header("location:admin_dash.php");
+          header("location:templets\admin\admin_dash.php");
+        } else {
+          header("location:admin_dash.php");
+          
         }
-      
+      } elseif ($data['type'] == 'author') {
+        $_SESSION['pass'] = $data['fname'];
+        $_SESSION['aid'] = $data['author_id'];
+        if (isset($_POST['rememberme'])) {
+
+          setcookie('emailcookie', $email, time() + 86400);
+          setcookie('passwordcookie', base64_encode($pass), time() + 86400);
+
+          header("location:index.php");
+        } else {
+          header("location:index.php");
+        }
+      }
+    }
   }
 }
- }
-  ?>
-        
+?>

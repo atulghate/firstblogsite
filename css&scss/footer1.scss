@@ -60,17 +60,28 @@ footer {
             }
         }
         .topic {
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 600;
             color: #fff;
             margin-bottom: 16px;
+            @include mobile {
+                font-size: 31px;
+                margin-bottom: 0px;
+                margin-top: 11px;
+            }
+            @include mobile_S {
+                font-size: 30px;
+            }
         }
         p {
             text-align: justify;
+            @include mobile {
+                margin-bottom: 36px;
+            }
         }
         .lower {
             .topic {
-                margin: 24px 0 5px 0;
+                margin: 9px 0 5px 0;
             }
             i {
                 padding-right: 16px;
@@ -89,13 +100,14 @@ footer {
             }
         }
         .media-icons {
+            margin-top: -18px;
             a {
                 font-size: 16px;
                 height: 45px;
                 width: 45px;
                 display: inline-block;
                 text-align: center;
-                line-height: 54px;
+                line-height: 45px;
                 border-radius: 5px;
                 border: 2px solid #222222;
                 margin: 30px 5px 0 0;
@@ -141,5 +153,8 @@ footer {
         .topic {
             font-size: 29px;
         }
+    }
+    .email {
+        margin-top: 10px;
     }
 }

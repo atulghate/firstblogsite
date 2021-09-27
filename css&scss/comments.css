@@ -22,6 +22,12 @@ body {
   margin: auto;
 }
 
+@media screen and (max-width: 450px) {
+  .wrapper {
+    margin-left: 55px;
+  }
+}
+
 .wrapper .form .input-group textarea {
   width: 100%;
   height: 100%;

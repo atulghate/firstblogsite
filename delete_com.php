@@ -6,9 +6,8 @@
 
  
 $rid = $_REQUEST['id'];
-$obj3 = new delete1();
-$obj3->delete('comment_tb','rid = "'.$rid.'"');
- 
+$obj = new Comm();
+$obj->delPost($rid);
    header('location:index.php'); 
 ?>
 

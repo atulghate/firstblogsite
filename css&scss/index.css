@@ -69,7 +69,7 @@ nav #icon {
     background-image: none;
     height: 83px;
     width: 227%;
-    margin-bottom: -161px;
+    margin-bottom: -247px;
     background-color: black;
     position: -webkit-sticky;
     position: sticky;
@@ -171,6 +171,20 @@ nav label.logo {
   font-weight: bold;
 }
 
+@media screen and (max-width: 450px) {
+  nav label.logo {
+    padding: 0 0px;
+    margin-left: 32px;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 800px) {
+  nav label.logo {
+    padding: 0 100px;
+    margin-left: -68px;
+  }
+}
+
 @media screen and (min-width: 800px) and (max-width: 1024px) {
   nav label.logo {
     font-size: 30px;
@@ -183,6 +197,15 @@ nav .imgee {
   margin-top: 15px;
   margin-left: 220px;
   height: 400px;
+}
+
+@media screen and (min-width: 1024) and (max-width: 1200px) {
+  nav .imgee {
+    margin: auto;
+    margin-top: 15px;
+    margin-left: 102px;
+    height: 400px;
+  }
 }
 
 nav img {
@@ -296,9 +319,32 @@ nav .checkbtn {
 
 @media screen and (max-width: 450px) {
   .postbox .time {
-    margin-left: -149px;
-    padding-top: 0px;
-    padding-left: 16px;
+    margin-left: -189px;
+    padding-top: 2px;
+    padding-left: 2px;
+    margin-bottom: 14px;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 800px) {
+  .postbox .time {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  .postbox .time {
+    margin-left: 28px;
+    padding-top: 5px;
+    margin-bottom: 18px;
+  }
+}
+
+@media screen and (min-width: 1024) and (max-width: 1200px) {
+  .postbox .time {
+    margin-left: 28px;
+    padding-top: 5px;
+    margin-bottom: 18px;
   }
 }
 
@@ -315,17 +361,19 @@ nav .checkbtn {
   .postbox img {
     border: 1px solid #ddd;
     border-radius: 4px;
-    width: 558px;
+    border: 1px solid #ddd;
+    width: 665px;
     float: left;
-    margin-left: -136px;
+    height: 400px;
+    margin-left: -193px;
   }
 }
 
 @media screen and (min-width: 450px) and (max-width: 800px) {
   .postbox img {
-    width: 568px;
-    margin-left: 24px;
-    height: 358px;
+    width: 681px;
+    margin-left: -10px;
+    height: 425px;
   }
 }
 
@@ -346,26 +394,26 @@ nav .checkbtn {
 @media screen and (max-width: 450px) {
   .postbox .content {
     margin-top: -2px;
-    width: 607px;
+    font-size: 29px;
+    width: 683px;
     padding: -1%;
     font-size: 29px;
-    margin-right: -359px;
-    display: table-column;
+    margin-right: -379px;
   }
 }
 
 @media screen and (min-width: 450px) and (max-width: 800px) {
   .postbox .content {
-    margin-top: 9px;
-    margin-right: 88px;
-    width: 647px;
+    margin-top: 64px;
+    width: 768px;
     float: none;
+    margin-left: 30px;
   }
 }
 
 @media screen and (min-width: 800px) and (max-width: 1024px) {
   .postbox .content {
-    margin-top: -346px;
+    margin-top: -364px;
     margin-right: 0px;
     width: 517px;
   }
@@ -374,6 +422,12 @@ nav .checkbtn {
 @media screen and (min-width: 1500) and (max-width: 1600px) {
   .postbox .content {
     margin-right: 231px;
+  }
+}
+
+@media screen and (min-width: 1024) and (max-width: 1200px) {
+  .postbox .content {
+    margin-right: -3px;
   }
 }
 
@@ -404,8 +458,9 @@ nav .checkbtn {
 @media screen and (max-width: 450px) {
   .postbox .time1 {
     margin-left: 20px;
-    padding-top: 11px;
+    padding-top: 0px;
     margin-bottom: 14px;
+    font-size: 25px;
   }
 }
 
@@ -416,7 +471,8 @@ nav .checkbtn {
 
 @media screen and (max-width: 450px) {
   .postbox .btnn {
-    margin-bottom: 20px;
+    margin-bottom: 38px;
+    padding-top: 0px;
   }
 }
 
@@ -439,6 +495,12 @@ nav .checkbtn {
   transition: .3s ease-in;
 }
 
+@media screen and (max-width: 450px) {
+  .postbox .btnn a {
+    font-size: 1.5rem;
+  }
+}
+
 .postbox .btnn :hover {
   opacity: 10px;
   background-color: #19db81;
@@ -456,6 +518,28 @@ hr {
   }
 }
 
+.h_com {
+  margin-left: 596px;
+}
+
+@media screen and (max-width: 450px) {
+  .h_com {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1024px) {
+  .h_com {
+    margin-left: 377px;
+  }
+}
+
+@media screen and (min-width: 450px) and (max-width: 800px) {
+  .h_com {
+    margin-left: 259px;
+  }
+}
+
 h2 {
   margin-left: 26px;
 }
@@ -463,16 +547,17 @@ h2 {
 @media screen and (max-width: 450px) {
   h2 {
     font-size: 28px;
-    margin-left: -139px;
+    margin-left: -187px;
     font-size: 28px;
     margin-right: -198px;
-    margin-top: 241px;
+    margin-top: 280px;
   }
 }
 
 @media screen and (min-width: 450px) and (max-width: 800px) {
   h2 {
-    margin-top: 0px;
+    margin-top: 30px;
+    margin-left: 0px;
   }
 }
 

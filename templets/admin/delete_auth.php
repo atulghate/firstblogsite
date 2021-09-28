@@ -9,5 +9,5 @@ spl_autoload_register(function($class){
 $rid = $_REQUEST['id'];
 $obj3 = new Posts();
 $obj3->delauthor($rid);
-   header('location:templets\admin\author_list.php'); 
+   header('location:author_list.php'); 
 ?>

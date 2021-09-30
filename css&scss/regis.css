@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+  max-width: 500px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.801);
+  margin: 20px auto;
+  padding: 30px;
+  border: 1px solid black;
+  -webkit-box-shadow: #6e6867 4px 7px;
+          box-shadow: #6e6867 4px 7px;
+  margin-bottom: 44px;
+}
+
+@media screen and (max-width: 450px) {
+  .wrapper {
+    margin: 103% 50% 23%;
+    width: 125%;
+  }
+}
+
+.wrapper .title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #070602;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.wrapper .form {
+  width: 100%;
+}
+
+@media screen and (max-width: 450px) {
+  .wrapper .form #gen {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    font-size: 26px;
+  }
+}
+
+.wrapper .form .inputfield {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: black;
+}
+
+@media screen and (max-width: 450px) {
+  .wrapper .form .inputfield {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.wrapper .form .inputfield .custom_select {
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.wrapper .form .inputfield .textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.wrapper .form .inputfield .input {
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 450px) {
+  .wrapper .form .inputfield .input {
+    font-size: 30px;
+  }
+}
+
+.wrapper .form .inputfield label {
+  width: 200px;
+  color: #757575;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 450px) {
+  .wrapper .form .inputfield label {
+    margin-bottom: 5px;
+    font-size: 26px;
+  }
+}
+
+.wrapper .form .inputfield .btn {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 15px;
+  border: 0px;
+  background-color: #00b894;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+@media screen and (max-width: 450px) {
+  .wrapper .form .inputfield .btn {
+    font-size: 26px;
+  }
+}
+
+.wrapper .form .inputfield .btn .btn:hover {
+  background: #095f58;
+}
+
+.wrapper .form .inputfield input[type="radio"] {
+  font-size: -3px;
+  width: 10%;
+  /* padding: 20px; */
+  height: 16px;
+}
+
+@media screen and (max-width: 450px) {
+  .wrapper .form .inputfield input[type="radio"] {
+    height: 20px;
+  }
+}
+
+.wrapper .form .inputfield label#l2 {
+  margin-right: -70px;
+}
+/*# sourceMappingURL=regis.css.map */
